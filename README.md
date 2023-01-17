@@ -4,9 +4,10 @@
 ```
 .
 ├── img
-├── paper               -- Report (LaTeX)
+├── 3020202184-刘锦帆-深度学习大作业.pdf  -- Report (PDF)
+├── paper                                 -- Report (LaTeX)
 ├── README.md
-└── vit.ipynb           -- Code
+└── vit.ipynb                             -- Code
 4 directories, 28 files
 ```
 
@@ -18,7 +19,7 @@
 2. Conda: 22.11.1
 3. Python Environment:
 * Python: >= 3.7
-```
+```shell
 conda create -y --name=vit
 conda activate vit
 conda install pip

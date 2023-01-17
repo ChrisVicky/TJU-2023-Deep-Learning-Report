@@ -1,0 +1,41 @@
+\section{Research Methods}
+  In this section, the approach to collect border information is introduced together with my own simple yet effective implementation in Pytorch. Also, the overall structure of the Network is presented here.
+
+\subsection*{Improvements on ViT}
+% Add a new line below subsection
+\vskip\baselineskip
+
+\textit{\textbf{Vision Transformer}}\cite{dosovitskiy2020image} is a combination of visialized 2D data and sequencial encoder methodologies. In short, it views a 2D image as a sequence of small, fix-sized patches that can be encoded as "image tokens" and be inputed into normal transformer encoders to be proporgated the in same way as "word tokens" are. And because of this mechanism which does not present relative information about the second dimension, I believe there can be spaces for improvements. 
+
+\textit{\textbf{Swin Transformer}}\cite{liu2021swin} proposed a possible solution that \textbf{\textit{shifted windows}} for a new round of calculation where the new windows perfectly cross the boundaries of the previous windows division schema.
+
+I borrowed from this method. In my solution, I send an additional set of patches that the include every cross boundaries of the original ones. Shown in Figure~\ref{fig:ABAB}, the illustration of B is the addtional set of patches that take on all the cross boundaries in A, providing extra usefull information for classification.
+
+\figuremacro{ht}{ABAB}{My Proposed Methodologies}{ - A is the original patches while B is the additional patches and B's patches can perfectly match every cross boundaries in A}{1.0}
+
+\paragraph{Addtional Patches} The approach I took, for coding, is by performing a transformation on the input matrix of images. To be specific, I move $half\_patch\times W$  pixels from top to bottom and $H\times half\_patch$ pixels from left to right, or vice versa. More specifically illustrated, shown in Figure~\ref{fig:Method1}, the red pattern is moved from top to bottom while the light blue pattern is moved from \textit{\textbf{Left}} to right and shown in Figure~\ref{fig:Method2}, while the original division cannot infer the relationship between the black and red stars, the new patches on the \textit{\textbf{Right}} circle the two in one patch which infers the two have strong connections in 2 dimensional manners. 
+
+\textbf{\textit{Note that: }} the actual patch size of can be quite small compared to the overall resolution of the image, which in this case is $32:256$. Therefore, the addtional patch shall not interrupt with the classification process.
+
+\paragraph{Concation} After the addtional patches is produced, we can now perform a concation to bind the two patches and make the Normal ViT Network get the input as normal as possible. Therefore, I concat 4 sets of patches in a 2D manner to ensure the width and height are equaled. And as is shown in Figure~\ref{fig:Method3}, the inference between number 1, 2, 3 and 4 can be determined by the set of patches on the right top side.
+
+\textbf{\textit{Note that: }} the methodology here is to utilize the already implemented APIs with the minimum modification which is learnt from ViT\cite{dosovitskiy2020image} paper where they did the minimum modification on the image input method and took advantages of the already advancely implemented Transformer APIs.
+
+\figuremacro{ht}{Method1}{Illustration 1}{ - The Colored Red and Light blue patterns are moved from top to bottom and left to right.}{1.0}
+
+\figuremacro{ht}{Method2}{Illustration 2}{ - The Original Division (Left) cannot refer the relationship between the black star and red star while the Additional Schema (Right) can infer the relationship between them since they are in the same patch.}{1.0}
+
+\figuremacro{ht}{Method3}{Illustration 3}{ - The Colored Red and Light blue patterns are moved from top to bottom and left to right.}{1.0}
+
+
+%
+% \begin{lstlisting}[caption = Hello World! in c++]
+% #include <iostream>
+%
+% int main() {
+%     std::cout << "Hello World!" << std::endl;
+%     std::cin.get();
+%     return 0;
+% }
+% \end{lstlisting}
+    

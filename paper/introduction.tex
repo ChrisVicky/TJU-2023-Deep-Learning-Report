@@ -1,0 +1,31 @@
+\section{Introduction}
+\subsection*{Related Work}
+
+% Add a new line below subsection
+\vskip\baselineskip
+
+\paragraph{\textit{Original Transformer}}
+The original \textbf{Transformer} Model (Shown in Figure~\ref{fig:attentionmodelarch}) was proposed in 2017 by google research team\cite{vaswani2017attention} aiming to solve tasks in Natural Language Processing (NLP) fields. The highlight of the paper is the introduction of \textbf{Attention}, a new mechanism that performs excellent on tasks involving Sequence to sequence (Seq2seq)\cite{sutskever2014sequence} mapping. In the following years, this model has been extended in various directions with a massive numbers of improvements with respect to a numerous adaptations to meet different task requirements. Some are successful (\cite{zhang2019self, li2019neural}) though, most of them are still in the field of Seq2seq. Yet, several attempts have been made on the tasks involving 2D information gatherings, such as embedding transformer in Convolutional Neural Networks (CNNs) to accelerate training process while boosting the training efficiency\cite{woo2018cbam}. The difficulties of utilizing transformer in 2D tasks is that the Attention mechanism is designed for extranctions of similarities between tokens in a sequencial manner. However, when directly squeezing a 2D matrix into transformer as a 1D vector and pipelining it into the Transformer Model as 'word tokens', the predictions are in fact acceptable and can run over some of the advanced CNNs in the literature at that time. The paper that proposed the method, is the topic and core model I discuss here. 
+
+\figuremacro{ht}{attentionmodelarch}{Attention Model Architecture\cite{vaswani2017attention}}{ - The foundamental building block of the Transformer cluster of models.}{1.0}
+\paragraph{\textit{Vision Transformer}}
+The Vision Transformer (ViT)\cite{dosovitskiy2020image} is known as the first to cut out convolutional layers in a model involving pure transformer layers. This model is designed to utilize the advanced performance of the state-of-the-art implementation to Transformer Model which could significently reduce unnecessary labor. The key concept of the paper is an approach that squeezes a 2D matrix of image to a 1D-fixed-sized-vector by dividing the original image into several 16x16 size pathes and perform a mapping that maps each patch to a vector. As is shown in Figure~\ref{fig:ViT}, the image is divided into 9 patches with each path containing $16\times16=256$ pixels. And the model used only the \textbf{Encoder} part of the Transformer. The method could have preserved several information though, including the relative positional information inside each block, the relationships between blocks that stands next to each other vertically are lost. This meagre bias could be resolved by training on large scale datasets or by special training strategy of distillation\cite{touvron2021training}. Apart from that, some other models (\cite{beyer2022better, zhou2021deepvit, touvron2021going, yuan2021tokens, hassani2021escaping}) have proposed their special solutions to this bias.
+
+\figuremacro{ht}{ViT}{Vision Transformer Model\cite{dosovitskiy2020image}}{ - The very model that brought pure transformer-based structure avaible for image classification tasks.}{1.0}
+
+\subsection*{My Work}
+% Add a new line below subsection
+\vskip\baselineskip
+\paragraph{\textit{Experiment}} Basically, I have conducted codes that run classification tasks on the same dataset with models discussed above that have extra modifications on the ViT as well as the original ViT itself. Additionally, I have modified the basic structure of the input data so that to fix up one possible drawbacks of ViT that I have pointed out.
+
+\paragraph{\textit{Little Improvement}} As is discussed above, the ViT does not consider the relative positional information of each pair of patches that stands besides vertically. Therefore, I have came up with a solution that modifies the input structure of the data so that the original ViT model could take border information into considerations. After a rough comparison, my method could be slightly better than the original ViT without no explicit modifications on the inner structure of the model itself. Instead, I have figured out a method that by preprocessing the input image, the same results could be achieved while utilizing the out-of-box, plug-and-play and state-of-the-art implementations of ViT from Github\cite{lucidrainsvitpytorch}.
+
+\subsection*{Contribution Summary}
+% Add a new line below subsection
+\vskip\baselineskip
+I would summarize my contribution to the report as the following points:
+\begin{enumerate}
+\item \textbf{Code.} I have been searched and coded for the whole part, including the borrowed code from \cite{lucidrainsvitpytorch} and customization input structure methods.
+\item \textbf{Analysis.} I have done the analysis and comparison of \textbf{Five} variations of implementations of \textbf{Vision Transformer} in a rather casual manner. 
+\item \textbf{Writing.} Though in a rush, the report itself if thoroughly written in English all by myself. No translation application is used to write a single sentence.
+\end{enumerate}

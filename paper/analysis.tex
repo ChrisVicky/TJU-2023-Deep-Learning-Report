@@ -1,0 +1,74 @@
+\section{Experiment and Analysis}	
+
+\subsection*{Dataset}
+\paragraph{\textit{Food 101\cite{bossard2014food}}} Food 101 is chosen as the dataset for these sets of experiment. The data set is presented by L Bossard\cite{bossard2014food} in 2014 aiming for image classification. In the experiment, because we perform a rather complicated concation, hopefully, the inference from the image can be independent from the 2D information related to the original image such as position, relative position, etc. And because the classification tasks do not involve those information, the dataset is a perfect choise. On top of that, the food 101 dataset is an old yet large scale dataset which contains a variety of classifications and is still widely used. It is user friendly, providing interface that can be easily downloaded and used via HuggingFace\cite{jain2022hugging} interface. %
+\begin{lstlisting}[language=python, caption = Code for Loading Food 101 via HuggingFace]
+food = load_dataset("food101", split="train[:1000]")
+food = food.train_test_split(test_size=0.2)
+"""
+... (Data split, Concation) ...
+"""
+# Show some Figures
+fig, axes = plt.subplots(3,3,figsize=(16,12))
+for idx, ax in enumerate(axes.ravel()):
+    label = train_data["label"][idx]
+    img = train_data["img"][idx]
+    ax.set_title(id2label[str(label)])
+    image = transforms.ToPILImage()(img).convert('RGB')
+    ax.imshow(image)
+\end{lstlisting}
+
+\figuremacro{ht}{DataShow1}{Some samples in the Dataset Food 101}{ - After the concation }{1.0}
+    
+
+\subsection*{Comparison and Analysis}
+% Add a new line below subsection
+\vskip\baselineskip
+
+\paragraph{Choices of Model} To make a comparison, we have to first determine which models to compare and which datasets to perform on. According to previous study, I have chosen "ViT"\cite{dosovitskiy2020image}, "Effiecency Transformer"\cite{xiong2021nystromformer}(Optimization on Transformer), "CaiT"\cite{touvron2021going}, "DeepViT"\cite{zhou2021deepvit} and our customization Model that built on normal "ViT" structure.
+
+\paragraph{Basic Setup} The models are coded with pytorch with help from vi-pytorch\cite{lucidrainsvitpytorch} and run on a Mechine armed with 3090Ti and is rent via autodl\cite{autodl}. Detailed information is listed below with some figures for further illustration.
+\begin{itemize}
+  \item OS: Arch Linux 6.1.4
+  \item Platform: 3090Ti Nvidia Cuda 11.3
+  \item Datasets: Food101\cite{bossard2014food}
+  \item Backend: Pytorch
+  \item Epoch: 30
+\end{itemize}
+
+\figuremacro{ht}{nvidia}{Nvidia Information}{}{1.0}
+
+\paragraph{Other conditions} All four models are trained under the same circumstances, and according to previous knowledge and some pre-train estimation, I decided to run each for 30 loops and the learning rate is set to $3\times 10^{-5}$. Also, as is illustrated before, the input size are all set to $256\times 256$.
+
+\paragraph{Results and Analysis} Results are shown as below in Figure~\ref{fig:Results}.
+According to the figure shown below, we can make the following Analysis:
+
+\begin{enumerate}
+  \item The ViT and three of its variations all learnt to be \textbf{\textit{overfitted}} yet DeepViT, due to it depths, which though, requires addtional hardware accelerator and a significant larger memory, holding a relatively higher train loss as Epoch grows, remains a relatively lower valuation loss compared to other three modules, indicating a better performance. Also, according to Table~\ref{tab:1}, the best performanced model here is still D-ViT, which holds the lowest Validation Error and the highest Validation Accuracy while costing a relatively acceptable time. And the Effiecency Model shows a realtively Low performance, which from my point of view, is due to its overfitting, since it reaches $100\%$ accuracy in training sets right after 23 epochs.
+  \item The improved input method is working well but not directing the model in a correct direction. According to the Training Loss chart shown in Figure~\ref{fig:Results}, the Loss of this kind decreases dramatically and is the lowest among all models. However, the low Loss in Training sets does not necessary means good performance. Instead, since the validation Loss is quite high at the end of 30 Epoch, I could infer that the model quickly overfitted after 30 Epoch. Yet, this overfitting phenomenon could prove, from a perspective, that a slight change in the patches could result in leading the model to learn quicker, adapt faster and get overfitted sooner and this saves time.
+\end{enumerate}
+
+\figuremacro{ht}{Results}{Training Results}{ - \textbf{Top} is the Train Loss value with respect to training epoches; \textbf{Middle} is the Loss of Validation Set; \textbf{Bottom} is the Time Spent of each Epoch, indicating the efficiency.
+\textbf{\textit{\textcolor{blue}{EFFECT\_ViT}}}: Effiecency Vit Implementation\cite{xiong2021nystromformer};
+\textbf{\textit{\textcolor{yellow}{ViT}}}: Normal ViT\cite{dosovitskiy2020image};
+\textbf{\textit{\textcolor{green}{DeepViT}}}: DeepVit\cite{zhou2021deepvit};
+\textbf{\textit{\textcolor{red}{CAIT}}}: CAIT\cite{touvron2021going};
+\textbf{\textit{\textcolor{purple}{ViT\_INPUTVARY}}}: My Special Implementation;}{1.0}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{c | c c c} 
+ \hline
+ Model  & Time  & V-Accuracy & V-Loss \\ [0.5ex] 
+ \hline
+  ViT    & \colorbox{green}{83.2}  & 0.85 & 0.60 \\ 
+  E-ViT  & 89.0  & \colorbox{red}{0.80} & \colorbox{red}{1.14} \\
+  D-ViT  & 99.0  & \colorbox{green}{0.87} & \colorbox{green}{0.33} \\
+  CAIT   & \colorbox{red}{103.3} & 0.81 & 0.82 \\
+  C-ViT  & 83.5  & 0.84 & 0.84\\ [1ex] 
+ \hline
+\end{tabular}
+\caption{Time, V-Accuracy, V-Loss of 5 models after 30 Epoch Training}
+\label{tab:1}
+\end{table}
+

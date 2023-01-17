@@ -1,0 +1,98 @@
+\begin{thebibliography}{10}
+
+\bibitem{dosovitskiy2020image}
+A.~Dosovitskiy, L.~Beyer, A.~Kolesnikov, D.~Weissenborn, X.~Zhai,
+  T.~Unterthiner, M.~Dehghani, M.~Minderer, G.~Heigold, S.~Gelly, {\em et~al.},
+  ``An image is worth 16x16 words: Transformers for image recognition at
+  scale,'' {\em arXiv preprint arXiv:2010.11929}, 2020.
+
+\bibitem{egonmwan2019transformer}
+E.~Egonmwan and Y.~Chali, ``Transformer and seq2seq model for paraphrase
+  generation,'' in {\em Proceedings of the 3rd Workshop on Neural Generation
+  and Translation}, pp.~249--255, 2019.
+
+\bibitem{liu2021swin}
+Z.~Liu, Y.~Lin, Y.~Cao, H.~Hu, Y.~Wei, Z.~Zhang, S.~Lin, and B.~Guo, ``Swin
+  transformer: Hierarchical vision transformer using shifted windows,'' in {\em
+  Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pp.~10012--10022, 2021.
+
+\bibitem{vaswani2017attention}
+A.~Vaswani, N.~Shazeer, N.~Parmar, J.~Uszkoreit, L.~Jones, A.~N. Gomez,
+  {\L}.~Kaiser, and I.~Polosukhin, ``Attention is all you need,'' {\em Advances
+  in neural information processing systems}, vol.~30, 2017.
+
+\bibitem{sutskever2014sequence}
+I.~Sutskever, O.~Vinyals, and Q.~V. Le, ``Sequence to sequence learning with
+  neural networks,'' {\em Advances in neural information processing systems},
+  vol.~27, 2014.
+
+\bibitem{zhang2019self}
+H.~Zhang, I.~Goodfellow, D.~Metaxas, and A.~Odena, ``Self-attention generative
+  adversarial networks,'' in {\em International conference on machine
+  learning}, pp.~7354--7363, PMLR, 2019.
+
+\bibitem{li2019neural}
+N.~Li, S.~Liu, Y.~Liu, S.~Zhao, and M.~Liu, ``Neural speech synthesis with
+  transformer network,'' in {\em Proceedings of the AAAI Conference on
+  Artificial Intelligence}, vol.~33, pp.~6706--6713, 2019.
+
+\bibitem{woo2018cbam}
+S.~Woo, J.~Park, J.-Y. Lee, and I.~S. Kweon, ``Cbam: Convolutional block
+  attention module,'' in {\em Proceedings of the European conference on
+  computer vision (ECCV)}, pp.~3--19, 2018.
+
+\bibitem{touvron2021training}
+H.~Touvron, M.~Cord, M.~Douze, F.~Massa, A.~Sablayrolles, and H.~J{\'e}gou,
+  ``Training data-efficient image transformers \& distillation through
+  attention,'' in {\em International Conference on Machine Learning},
+  pp.~10347--10357, PMLR, 2021.
+
+\bibitem{beyer2022better}
+L.~Beyer, X.~Zhai, and A.~Kolesnikov, ``Better plain vit baselines for
+  imagenet-1k,'' {\em arXiv preprint arXiv:2205.01580}, 2022.
+
+\bibitem{zhou2021deepvit}
+D.~Zhou, B.~Kang, X.~Jin, L.~Yang, X.~Lian, Z.~Jiang, Q.~Hou, and J.~Feng,
+  ``Deepvit: Towards deeper vision transformer,'' {\em arXiv preprint
+  arXiv:2103.11886}, 2021.
+
+\bibitem{touvron2021going}
+H.~Touvron, M.~Cord, A.~Sablayrolles, G.~Synnaeve, and H.~J{\'e}gou, ``Going
+  deeper with image transformers,'' in {\em Proceedings of the IEEE/CVF
+  International Conference on Computer Vision}, pp.~32--42, 2021.
+
+\bibitem{yuan2021tokens}
+L.~Yuan, Y.~Chen, T.~Wang, W.~Yu, Y.~Shi, Z.-H. Jiang, F.~E. Tay, J.~Feng, and
+  S.~Yan, ``Tokens-to-token vit: Training vision transformers from scratch on
+  imagenet,'' in {\em Proceedings of the IEEE/CVF International Conference on
+  Computer Vision}, pp.~558--567, 2021.
+
+\bibitem{hassani2021escaping}
+A.~Hassani, S.~Walton, N.~Shah, A.~Abuduweili, J.~Li, and H.~Shi, ``Escaping
+  the big data paradigm with compact transformers,'' {\em arXiv preprint
+  arXiv:2104.05704}, 2021.
+
+\bibitem{lucidrainsvitpytorch}
+P.~Wang, ``{vit pytorch},'' 12 2021.
+
+\bibitem{bossard2014food}
+L.~Bossard, M.~Guillaumin, and L.~Van~Gool, ``Food-101--mining discriminative
+  components with random forests,'' in {\em European conference on computer
+  vision}, pp.~446--461, Springer, 2014.
+
+\bibitem{jain2022hugging}
+S.~M. Jain, ``Hugging face,'' in {\em Introduction to Transformers for NLP},
+  pp.~51--67, Springer, 2022.
+
+\bibitem{xiong2021nystromformer}
+Y.~Xiong, Z.~Zeng, R.~Chakraborty, M.~Tan, G.~Fung, Y.~Li, and V.~Singh,
+  ``Nystr{\"o}mformer: A nystr{\"o}m-based algorithm for approximating
+  self-attention,'' in {\em Proceedings of the AAAI Conference on Artificial
+  Intelligence}, vol.~35, pp.~14138--14148, 2021.
+
+\bibitem{autodl}
+``{autodl} gpu renting.'' \url{https://www.autodl.com/home}.
+\newblock Accessed: 2023-01-15.
+
+\end{thebibliography}

@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: ieeetr.bst
+Database file #1: references.bib
+Warning--entry type for "lucidrainsvitpytorch" isn't style-file defined
+--line 118 of file references.bib
+Warning--can't use both volume and number fields in li2019neural
+Warning--can't use both volume and number fields in xiong2021nystromformer
+You've used 19 entries,
+            1876 wiz_defined-function locations,
+            575 strings with 7169 characters,
+and the built_in function-call counts, 5931 in all, are:
+= -- 518
+> -- 317
+< -- 0
++ -- 113
+- -- 94
+* -- 445
+:= -- 841
+add.period$ -- 20
+call.type$ -- 19
+change.case$ -- 19
+chr.to.int$ -- 0
+cite$ -- 21
+duplicate$ -- 298
+empty$ -- 561
+format.name$ -- 94
+if$ -- 1410
+int.to.chr$ -- 0
+int.to.str$ -- 19
+missing$ -- 17
+newline$ -- 61
+num.names$ -- 18
+pop$ -- 105
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 192
+stack$ -- 0
+substring$ -- 387
+swap$ -- 115
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 51
+width$ -- 21
+write$ -- 172
+(There were 3 warnings)

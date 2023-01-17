@@ -1,0 +1,18 @@
+\section{Conclusion}
+% （总结该课题解决问题及意义，可包括课题特点、方法、结果、不足及原因，对未来工作进行探讨等。）
+\textbf{\textit{In a nutshell}}, I proposed a possible solution to fix the problem of lacking 2D inference information in the original structure of vision transformer and conducted several experiments on a portable platform to evaluate and compare three variations of vision transformer as well as the original one and my customized one. The results shows:
+\begin{itemize}
+\item The original ViT is designed to meet certain tradeoff that it is balanced to avoid overfitting.
+\item The Efficient way could speed the training process, yet could run into overfitting quickly.
+\item Deep Vision Transformer could avoid significently the overfitting trap, yet it requires a better hardware environment and could result in crashdown in smaller memory machines running on CPU (personally, my 32GB memory, together with its 32GB swapfile are both filled with the sources and eventually crashed the system).
+\item The proposed improvements on the preprocessing of the input image could provide addtional information that accelerates the speed of the normal vision transformer, yet the method can be improved if further edition could be done inside the ViT rather than providing a special input for varification.
+\end{itemize}
+
+\textbf{\textit{Future work}} could be done in the following ways:
+\begin{itemize}
+\item The Modification inside transformer's attention mechanism which could be improved especially for 2D matrix information gathering.
+
+\item The combination of vision transformer and other transformers to conduct Multimodality Tasks.
+ 
+  
+\end{itemize}
